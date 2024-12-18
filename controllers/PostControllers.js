@@ -13,7 +13,7 @@ body: { username: String, content: String, img_url: ?String }
 */
 exports.createPost = async (req, res) => {
   const { password } = req.query;
-  if (!authorize(password)) res.status(403).send('Unauthorized: Incorrect Password')
+  if (!authorize(password)) return res.status(403).send('Unauthorized: Incorrect Password')
 
   const { username, content, img_url } = req.body;
 
